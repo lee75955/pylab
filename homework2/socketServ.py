@@ -3,8 +3,11 @@ from socket import *
 from os.path import exists
 import sys
 
+host = ''
+port = 10302
+
 serverSock = socket(AF_INET, SOCK_STREAM)
-serverSock.bind(('', 10302))
+serverSock.bind((host, port))
 serverSock.listen(1)
 
 connectionSock, addr = serverSock.accept()
@@ -13,7 +16,6 @@ print(str(addr),'에서 접속했습니다')
 
 filename = connectionSock.recv(1024)
 print('받은 데이터 : ', filename.decode('utf-8'))
- 일반 문자열로 변환한다
 data_transferred = 0
 
 if not exists(filename):

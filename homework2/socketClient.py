@@ -5,8 +5,7 @@ import sys
 clientSock = socket(AF_INET, SOCK_STREAM)
 clientSock.connect(('203.250.133.88', 10302))
 
-print('연결에 성공했습니다.')
-filename = input('전송할 파일 이름을 입력하세요: ')
+filename = input('vsftp>')
 clientSock.sendall(filename.encode('utf-8'))
 
 data = clientSock.recv(1024)
